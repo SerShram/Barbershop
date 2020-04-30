@@ -37,22 +37,16 @@ body{
 	padding-right: 40px;
 }
 .menu__info {}
-
 .menu__news {}
-
 .menu__price {}
-
 .menu__shop {}
-
 .menu__contact {}
-
 .menu__link{
 	font-size: 16px;
 	font-weight: bold;
 	letter-spacing: 1px;
 	color: #fff;
 }
-
 .login {
 	position: relative;
 }
