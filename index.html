@@ -2,52 +2,83 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" href="" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="image/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="image/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="image/favicon/favicon-16x16.png">
+	<link rel="manifest" href="image/favicon/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="theme-color" content="#100d0d">
+	<title>Barbershop</title>
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Barbershop</title>
 </head>
 <body>
 <!--  Шапка сайта -->
-	<div class="flex_conteiner">
 		<header class="header">
 			<div class="wrapper">
-				<div class="header__menu">
-					<div class="menu">
-						<ul class="menu__list">
-							<li class="menur__info">
-								<a class="menu__link" href="#">ИНФОРМАЦИЯ</a>
+				<div class="header-menu">
+						<ul class="header-menu__list">
+							<li class="header-menu__item">
+								<a class="header-menu__link" href="#">ИНФОРМАЦИЯ</a>
 							</li>
-							<li class="menu__news">
-								<a class="menu__link" href="#">НОВОСТИ</a>
+							<li class="header-menu__item">
+								<a class="header-menu__link" href="#">НОВОСТИ</a>
 							</li>
-							<li class="menu__price">
-								<a class="menu__link" href="#">ПРАЙС-ЛИСТ</a>
+							<li class="header-menu__item">
+								<a class="header-menu__link" href="#">ПРАЙС-ЛИСТ</a>
 							</li>
-							<li class="menu__shop">
-								<a class="menu__link" href="#">МАГАЗИН</a>
+							<li class="header-menu__item">
+								<a class="header-menu__link" href="#">МАГАЗИН</a>
 							</li>
-							<li class="menu__contact">
-								<a class="menu__link" href="#">КОНТАКТЫ</a>
+							<li class="header-menu__item">
+								<a class="header-menu__link" href="#">КОНТАКТЫ</a>
 							</li>
 						</ul>
-					</div>
 					<div class="login">
-						<a class="login__link" href="#">ВХОД</a>
+						<a class="login__btn js-trigger" href="#">ВХОД</a>
 					</div>
 				</div>
 			</div>
 		</header>
-
+<!--    Форма регистрации-->
+						<div class="modal-wrapper">
+							<div class="modal">
+								<a class="modal__btn-close js-trigger" href="#"><img src="svg/cross-white.svg" alt=""></a>
+								<h2 class="modal__title">личный кабинет</h2>
+								<div class="modal__text">
+									введите пожалуйста свой логин и пароль
+								</div>
+								<form class="reg-form" name="registration" method="post" action="#">
+									<div class="reg-form__login">
+										<input type="text" name="userlogin" placeholder="логин">
+									</div>
+									<div class="reg-form__pass">
+										<input type="password" name="userpass" placeholder="пароль">
+									</div>
+									<div class="reg-form__row">
+										<label class="reg-form__remember">
+											<input class="reg-form__checkbox" type="checkbox" name="remember">
+											<span class="reg-form__checkbox-pseudo"></span>
+											<span class="reg-form__checkbox-text">запомните меня</span>
+										</label>
+										<a class="reg-form__forgot" href="#">я забыл пароль!</a>
+									</div>
+									<button class="reg-form__button">войти</button>
+								</form>
+							</div>
+						</div>
+<!--                      -->
 <!--  Контент сайта -->
-		<main class="content">
+		<main class="body">
 			<div class="wrapper">
 <!-- Логотип -->
 				<div class="logo">
-					<img class="logo_image" src="image/index-logo.png" alt="">
+					<a class="logo__link" href="#">
+						<img class="logo__image" src="image/index-logo.png" alt="">
+					</a>
 				</div>
 <!-- Преимущества -->
-				<div class="slogan-row">
+				<div class="slogans-row">
 					<div class="slogan">
 						<div class="slogan__title ">БЫСТРО</div>
 						<img class="slogan__image" src="image/rhomb.png" alt="">
@@ -70,15 +101,108 @@
 						</div>
 					</div>
 				</div>
-<!-- Основной контент-->
-				<div class="content-row">
-					
+<!--Блок Новости и Фотогалерея-->
+				<div class="content-container">
+					<div class="content-item">
+						<h3 class="content-item__title">новости</h3>
+						<p class="content-item__news">
+							нам наконец завезли ягермайстер! теперь вы можете пропустить стаканчик во время стрижки
+							<span class="content-item__date-news">11 января</span>
+						</p>
+						<p class="content-item__news">
+							в нашей команде пополнение,борис "бритва" стригунец, обладатель множества титулов и наград пополнил наши стройные ряды
+							<span class="content-item__date-news">18 января</span>
+						</p>
+						<button class="content-item__button">все новости</button>
+					</div>
+					<div class="content-item">
+						<h3 class="content-item__title">фотогалерея</h3>
+						<a href="image/gallery-img/image1.jpg" class="content-item__link">
+							<img class="content-item__image" src="image/gallery-img/image1.jpg" alt="">
+						</a>
+						<div class="content-item__buttons">
+							<button class="content-item__button">назад</button>
+							<button class="content-item__button">вперед</button>
+						</div>
+					</div>
+				</div>
+<!--Блок Контакты и Запись-->
+				<div class="content-container">
+					<div class="content-item">
+						<h3 class="content-item__title">контактная информация</h3>
+						<p class="content-item__news">
+							барбершоп &laquo;бородинский&raquo;<br>
+							адрес: г.санкт-петербург, б.конюшенная, д. 19/8<br>
+							телефон: +7(495) 666-02-66
+						</p>
+						<p class="content-item__news">
+							время работы:<br>
+							пн-пт: с 10:00 до 22:00<br>
+							сб-вс: с 10:00 до 19:00
+						</p>
+						<div class="content-item__buttons">
+							<button class="content-item__button">как проехать</button>
+							<button class="content-item__button">обратная связь</button>
+						</div>
+					</div>
+					<div class="content-item">
+						<h3 class="content-item__title">записаться</h3>
+						<p class="content-item__news">
+							укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони
+						</p>
+						<form class="recording-form" name="recording" method="get" action="#">
+							<div class="recording-form__item">
+								<p class="recording-form__title">дата</p>
+								<input class="recording-form__square" type="text" name="date" placeholder="08.10.2020">
+							</div>
+							<div class="recording-form__item">
+								<p class="recording-form__title">время</p>
+								<input class="recording-form__square" type="text" name="time" placeholder="10:00">
+							</div>
+							<div class="recording-form__item">
+								<p class="recording-form__title">ваше имя</p>
+								<input class="recording-form__square" type="text" name="username" placeholder="Борода">
+							</div>
+							<div class="recording-form__item">
+								<p class="recording-form__title">телефон</p>
+								<input class="recording-form__square" type="tel" name="phone" placeholder="066 095 66 16">
+							</div>
+								<button class="content-item__button recording-form__button" type="submit">
+									отправить
+								</button>
+						</form>
+							
+					</div>
 				</div>
 			</div>
 		</main>
 
 <!--  Подвал сайта -->
-		<footer class="footer"></footer>
-	</div>
+		<footer class="footer">
+			<div class="wrapper">
+				<div class="footer-row">
+					<div class="footer-contact">
+						барбершоп &laquo;бородинский&raquo;<br>
+						адрес: г.санкт-петербург, б.конюшенная, д. 19/8<br>
+						<a href="#" class="footer-link-map">как нас найти?</a><br>
+						телефон: +7(495) 666-02-66
+					</div>
+					<div class="footer-social">
+						<div class="footer-title">давайте дружить!</div>
+						<div class="social-row">
+							<a href="#" class="social-row__link link--vk"></a>
+							<a href="#" class="social-row__link link--fb"></a>
+							<a href="#" class="social-row__link link--inst"></a>
+						</div>
+					</div>
+					<div class="footer-source">
+						<div class="footer-title">разроботано:</div>
+						<a href="#" class="footer-link">html academy</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script src="js/script.js"></script>
 </body>
 </html>

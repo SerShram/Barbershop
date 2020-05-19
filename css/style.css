@@ -1,18 +1,23 @@
 @import url("nullstyle.css");
 
 body{
-	font-family: ptsansnarrow;
+	font-family: PTSans,Arial,sans-serif;
 	font-weight: bold;
 	font-size: 14px;
 }
-.flex_conteiner {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100%;
+button{
+height: 42px;
+background-color: #000000;
+color: #fff;
+font-weight: bold;
+font-size: 14px;
+text-transform: uppercase;
 }
 .header {
 	height: 70px;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
 	background-color: #000000;
 }
 
@@ -22,63 +27,186 @@ body{
 	padding: 0 10px;
 	height: 100%
 }
-.header__menu {
+.header-menu {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	height: 100%;
-	padding: 0 17px 0;
 }
-.menu{}
-.menu__list {
+.header-menu__list {
 	display: flex;
 }
-.menu__list>li:not(:last-child) {
-	padding-right: 40px;
-}
-.menu__info {}
-.menu__news {}
-.menu__price {}
-.menu__shop {}
-.menu__contact {}
-.menu__link{
+.header-menu__item{}
+.header-menu__link{
 	font-size: 16px;
 	font-weight: bold;
 	letter-spacing: 1px;
 	color: #fff;
+	display: block;
+	height: 100%;
+	padding: 27px 17px;
+}
+.header-menu__link:hover{
+	background-color: #1e1e1e;
 }
 .login {
 	position: relative;
 }
-.login__link{
+.login__btn{
 	font-size: 16px;
 	font-weight: bold;
 	letter-spacing: 1px;
 	color: #fff;
+	display: block;
+	height: 100%;
+	padding: 27px 17px 0 47px;
 }
-.login__link::before{
+.login__btn:hover{
+	background-color: #1e1e1e;
+}
+.login__btn::before{
 	content: url(../svg/login.svg);
 	position: absolute;
-	top: 0px;
-	left: -31px;
+	top: 27px;
+	left: 15px;
 }
-svg{
-	fill: green;
+.login__btn:hover::before{
+	content: url(../svg/login-hover.svg);
+	position: absolute;
+	top: 27px;
+	left: 15px;
 }
-/*		Основной контент		*/
-.content {
+/*		Форма регистрации		*/
+.modal-wrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: 2s;
+}
+.modal-wrapper.close{
+	background-color:rgba(0, 0, 0, 0.7);
+	z-index: 1;
+	position: fixed;
+}
+.modal{
+	width: 460px;
+	position: absolute;
+	top: 10%;
+	left: 38%;
+	padding: 40px 60px;
+	background-color: #f9f6f3;
+	opacity: 0;
+	visibility: hidden;
+	transition: 2s;
+}
+.modal.open{
+	opacity: 1;
+	visibility: visible;
+}
+.modal__btn-close{
+	position: absolute;
+	top: 0;
+	left: 103%;
+}
+.modal__title {
+	font-size: 30px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+.modal__text {
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+.reg-form {}
+.reg-form__login,
+.reg-form__pass{
+	position: relative;
+}
+.reg-form__login::after{
+	content: url(../svg/user.svg);
+	position: absolute;
+	top: 14px;
+	right: 10px;
+}
+.reg-form__pass::after{
+	content: url(../svg/lock.svg);
+	position: absolute;
+	top: 14px;
+	right: 10px;
+}
+.reg-form__login input,
+.reg-form__pass input{
+	width: 100%;
+	border: 2px solid #000;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 34px 10px 18px;
+	margin-bottom: 10px;
+}
+.reg-form__login input::placeholder,
+.reg-form__pass input::placeholder{
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.reg-form__row{
+display: flex;
+justify-content: space-between;
+padding-top: 10px;
+margin-bottom: 20px;
+}
+.reg-form__remember{
+	position: relative;
+	cursor: pointer;
+}
+.reg-form__checkbox-pseudo{
+	width: 20px;
+	height: 20px;
+	border: 2px solid #000;
+	display: inline-block;
+	position: absolute;
+	top: -5px;
+	left: 0;
+}
+input[type="checkbox"]:checked+
+.reg-form__checkbox-pseudo{
+	background: #fff url(../svg/cross.svg) 2px 2px no-repeat;
+}
+.reg-form__checkbox {
+	display: none;
+}
+.reg-form__checkbox-text {
+	text-transform: uppercase;
+	padding-left: 33px;
+}
+.reg-form__forgot {
+	color: #000;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+.reg-form__button {
+	width: 100%;
+}
+/*		Контент сайта		*/
+.body {
 	background-image: url(../image/Layer.jpg);
 	flex-grow: 1;
 }
+/*		Логотип		*/
 .logo {
 	text-align: center;
-	padding-top: 60px;
+	padding-top:130px;
 	margin-bottom: 80px;
 }
-.logo_image {}
-.slogan-row {
+.logo__image {}
+/*		Преимущества		*/
+.slogans-row {
 	display: flex;
 	justify-content: space-between;
+	margin: 0 0 80px;
 }
 .slogan {
 	color: #fff;
@@ -87,16 +215,152 @@ svg{
 }
 .slogan__title {
 	font-size: 30px;
-	margin-bottom: 15px;
+	margin-bottom: 11px;
 }
 .slogan__image {
-	margin-bottom: 28px;
+	margin-bottom: 24px;
 }
 .slogan__text {
 	line-height: 24px;
 }
+/*		Блок Новости и Фотогалерея		*/
+.content-container {
+	background-color: #f9f6f3;
+	padding: 49px 0 50px 0;
+	display: flex;
+	margin-bottom: 37px;
+}
+.content-container:last-child {
+	margin-bottom: 60px;
+}
+.content-item {
+	padding: 0 50px 0 82px;
+	width: 50%;
+	position: relative;
+}
+.content-item::before {
+	content: url(../image/Layer17copy.png);
+	position: absolute;
+	right: -2px;
+	top: 14px;
+}
+.content-item:last-child::before{
+	content: "";
+	display: none;
+}
+.content-item__title {
+	font-weight: bold;
+	font-size: 30px;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+.content-item__news {
+	text-transform: uppercase;
+	line-height: 1.8;
+	letter-spacing: 0.3px;
+	margin-bottom: 20px;
+}
+.content-item__date-news {
+	display: block;
+	text-transform: none;
+}
+.content-item__button {
+	width: 140px;
+	margin-right: 19px;
+}
+.content-item__button:nth-child(even){
+	margin: 0;
+}
+.content-item__link {}
+.content-item__image {
+	border: 8px solid #ffffff;
+	margin-bottom: 39px;
+}
+/*		Блок Контакты и Запись		*/
+.recording-form {}
+.recording-form__item {
+	display: inline-block;
+	margin: 0 19px 15px 0;
+}
+.recording-form__item:nth-child(even){
+	margin: 0;
+}
+.recording-form__title {
+	text-transform: uppercase;
+	padding-left: 24px;
+	margin-bottom: 9px;
+}
+.recording-form__square {
+	width: 140px;
+	height: 43px;
+	border: 2px solid #000;
+	padding-left: 20px;
+	background-color: #f9f6f3;
+	font-family: PTSans,Arial,sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+}
+.recording-form__button {
+	width: 302px;
+	margin: 7px 0 0;
+}
+
 /*		Подвал		*/
 .footer {
-	height: 190px;
 	background-color: #242424;
+	color: #f9f6f3;
+	text-transform: uppercase;
+	line-height: 2;
+	padding: 60px 0 50px;
+}
+.footer-row {
+	display: flex;
+	justify-content: space-between;
+}
+.footer-contact {}
+.footer-link-map{
+	color: #f9f6f3;
+	text-decoration: underline;
+}
+.footer-link-map:visited{
+	color: #e7bd94;
+}
+.footer-social {}
+.footer-title {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.social-row {
+	width: 137px;
+	display: flex;
+	justify-content: space-between;
+}
+.social-row__link {
+	width: 40px;
+	height: 40px;
+	display: block;
+}
+.social-row__link:hover{
+	box-shadow: 0 0 5px 0px #fff;
+	border-radius: 15%;
+}
+.link--vk {
+	background: #000 url(../image/sprites/sprite-socials.png) -75px 2px no-repeat;
+}
+.link--fb {
+	background: #000 url(../image/sprites/sprite-socials.png) 4px -2px no-repeat;
+}
+.link--inst {
+	background: #000 url(../image/sprites/sprite-socials.png) -32px 0 no-repeat;
+}
+.footer-source {}
+.footer-link {
+	display: block;
+	background-color: #000;
+	padding: 3px 23px;
+	color: #f9f6f3;
+}
+.footer-link:hover{
+	box-shadow: 0 0 5px 0px #fff;
+	border-radius: 6%;
 }
