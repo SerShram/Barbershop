@@ -1,3 +1,4 @@
 # Barbershop page-proofs.
 Html, Css 
-Without adaptive, rubber page.
+Without adaptive. 
+Rubber page.
